@@ -1,0 +1,137 @@
+:root {
+  --bg: #0f1724;
+  --card: #0b1220;
+  --muted: #9AA4B2;
+  --accent: #6EE7B7;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #071023 0%, var(--bg) 100%);
+  color: #E6EEF3;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 980px; margin: 36px auto; padding: 28px; }
+
+header { display: flex; align-items: center; gap: 18px; }
+
+.avatar {
+  width: 86px; height: 86px; border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent), #60a5fa);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: #042029; font-size: 28px;
+}
+
+h1 { margin: 0; font-size: 28px; }
+.subtitle { font-weight: 400; color: var(--muted); font-size: 16px; }
+
+p.lead { margin: 6px 0 0; color: var(--muted); }
+
+nav { margin-top: 22px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+.btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .06);
+  padding: 8px 12px; border-radius: 10px;
+  color: var(--muted); font-size: 14px; text-decoration: none;
+}
+
+main { margin-top: 28px; display: grid; grid-template-columns: 1fr 320px; gap: 24px; }
+
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding: 18px; border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.about { line-height: 1.6; color: #D9E8F0; }
+
+.skills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.skill {
+  background: rgba(255,255,255,0.03);
+  padding: 8px 10px; border-radius: 8px;
+  font-size: 13px; color: var(--muted);
+}
+
+.projects { display: grid; gap: 12px; }
+.project { display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: 10px; background: rgba(0,0,0,0.18); }
+.project h3 { margin: 0; font-size: 16px; }
+.project p { margin: 0; color: var(--muted); font-size: 14px; }
+.project-links { display: flex; gap: 8px; margin-top: 8px; }
+
+.chip {
+  padding: 6px 8px; border-radius: 8px;
+  background: rgba(255,255,255,0.02);
+  font-size: 13px; color: var(--muted);
+  border: none; cursor: pointer;
+}
+
+aside .stat {
+  display: flex; justify-content: space-between;
+  padding: 10px; border-radius: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.01), transparent);
+}
+
+footer { margin-top: 28px; text-align: center; color: var(--muted); font-size: 13px; }
+
+@media (max-width: 880px) { main { grid-template-columns: 1fr; } }
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: auto; /* allow scrolling if content is too big */
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.modal.open {
+  opacity: 1;
+}
+
+.modal-content {
+  background: #0b1220;
+  padding: 16px;
+  border-radius: 12px;
+  max-width: 90%;       /* responsive width */
+  max-height: 80%;      /* prevent overflowing vertically */
+  width: 800px;         /* default width for large screens */
+  transform: scale(0.7);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal.open .modal-content {
+  transform: scale(1);
+}
+
+.modal-content video,
+.modal-content iframe {
+  width: 100%;          /* take full width of modal */
+  max-height: 70vh;     /* max height is 70% of viewport */
+  border-radius: 8px;
+}
+
+.close {
+  font-size: 24px;
+  color: var(--muted);
+  align-self: flex-end;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.accent-text {
+  color: var(--accent);
+}
